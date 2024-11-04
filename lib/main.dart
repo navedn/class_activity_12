@@ -104,11 +104,21 @@ class _HomePageState extends State<HomePage> {
 
 // Deleting a product by id
   Future<void> _deleteProduct(String productId) async {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('You have successfully deleted a product'),
-      ),
-    );
+    try {
+      await _products.doc(productId).delete();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('You have successfully deleted your product'),
+        ),
+      );
+    } catch (e) {
+      print("Error deleting product: $e");
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to delete product: $e'),
+        ),
+      );
+    }
   }
 
   @override
