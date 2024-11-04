@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "206601026588",
+    "project_id": "nnmadfbdemo",
+    "storage_bucket": "nnmadfbdemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206601026588:android:4afea726be314e5bf1b3d9",
+        "android_client_info": {
+          "package_name": "com.nentech.firebase_demo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTyfd0CAbfal7uVSvDDl5CStgNJi81rtc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
