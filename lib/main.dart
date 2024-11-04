@@ -153,6 +153,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Class Activity #12'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () => DoNothingAction.new(),
+          ),
+        ],
       ),
 // Using StreamBuilder to display all products from Firestore in real-time
       body: StreamBuilder(
