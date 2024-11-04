@@ -121,11 +121,38 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void _showDeleteConfirmationDialog(String productId) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Delete Product"),
+          content: const Text("Are you sure you want to delete this product?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: const Text("Cancel"),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                _deleteProduct(productId);
+                Navigator.of(context).pop(); // Close the dialog
+              },
+              child: const Text("Delete"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CRUD operations'),
+        title: const Text('Class Activity #12'),
       ),
 // Using StreamBuilder to display all products from Firestore in real-time
       body: StreamBuilder(
@@ -152,8 +179,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                           IconButton(
                             icon: const Icon(Icons.delete),
-                            onPressed: () =>
-                                _deleteProduct(documentSnapshot.id),
+                            onPressed: () => _showDeleteConfirmationDialog(
+                                documentSnapshot.id),
                           ),
                         ],
                       ),
